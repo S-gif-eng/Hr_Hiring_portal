@@ -1,0 +1,324 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Job Post Template</title>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f3f6ff 50%, #e6f0ff 100%);
+      padding: 40px;
+      min-height: 100vh;
+      position: relative;
+      
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="50" width="50" height="50" transform="rotate(45 50 50)" fill="%231a365d" opacity="0.05"/></svg>');
+      top: -200px;
+      right: -200px;
+      z-index: 0;
+    }
+
+    .template-container {
+      width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,1));
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 1;
+      border: 2px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(5px);
+    }
+
+    .design-header {
+      background: linear-gradient(160deg, #1a365d, #2c5282);
+      padding: 50px 40px;
+      opacity: 0.98;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .design-header::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 100px;
+      height: 100px;
+      background: #93c5fd;
+      opacity: 0.1;
+      transform: rotate(45deg);
+    }
+
+    .logo-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .logo-title-wrapper img {
+      width: 35%;
+     /* background: rgba(255,255,255,0.9);*/
+      padding: 15px;
+      border-radius: 12px;
+     /* box-shadow: 0 8px 20px rgba(205, 204, 204, 0.1);*/
+      /*border: 2px solid #93c5fd;*/
+      /*filter: drop-shadow(0 0 8px rgba(147,197,253,0.3));*/
+    }
+
+    .main-heading {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      margin-bottom: 5px;
+      position: relative;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .main-heading::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #93c5fd;
+      margin-top: 10px;
+      border-radius: 2px;
+    }
+
+    .job-title {
+      font-size: 2rem;
+      color: #93c5fd;
+      font-weight: 600;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .content-section {
+      padding: 50px 40px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 50px;
+    }
+
+    .requirements-section {
+      border-right: 3px solid #e8f0fe;
+      padding-right: 40px;
+    }
+
+    .section-title {
+      color: #1a365d;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 25px 0 20px;
+      position: relative;
+      padding-left: 35px;
+    }
+
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background: #1a365d;
+      border-radius: 50%;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 25px;
+    }
+
+    .bullet-list li {
+      margin-bottom: 15px;
+      padding-left: 35px;
+      position: relative;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .bullet-list li::before {
+      content: "▹";
+      position: absolute;
+      left: -5px;
+      color: #2c5282;
+      font-size: 1.4em;
+    }
+
+    .contact-sidebar {
+      background: linear-gradient(160deg, #f8fafc 0%, #ffffff 100%);
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 4px solid #93c5fd;
+      box-shadow: -10px 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .contact-item {
+      margin-bottom: 30px;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .contact-label {
+      color: #2c5282;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-value {
+      color: #1a365d;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .company-info {
+      background: #1a365d;
+      color: white;
+      padding: 30px 40px;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .download-btn {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #1a365d, #2c5282);
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(26,54,93,0.2);
+      transition: transform 0.2s;
+      font-size: 1.1rem;
+      z-index: 2;
+    }
+
+    .download-btn:hover {
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    .highlight-number {
+      color: #2c5282;
+      font-weight: 700;
+      margin-right: 5px;
+    }
+
+    .decorative-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #93c5fd, #1a365d);
+    }
+  </style>
+</head>
+<body>
+  <div class="template-container" id="export-container">
+    <div class="design-header">
+      <div class="logo-title-wrapper">
+        <img src="./assets/colored-logo.png" alt="Company Logo">
+        <div>
+          <div class="main-heading" contenteditable="true">WE'RE HIRING</div>
+          <div class="job-title" contenteditable="true">Senior Quality Engineer</div>
+        </div>
+      </div>
+      <div class="decorative-line"></div>
+    </div>
+
+    <div class="content-section">
+      <div class="requirements-section">
+        <div class="section-title">Qualifications</div>
+        <ul class="bullet-list" contenteditable="true">
+          <li><span class="highlight-number">4–6 years</span> experience in Test Automation</li>
+          <li>Minimum <span class="highlight-number">2 years</span> hands-on C# programming</li>
+          <li><span class="highlight-number">2+ years</span> experience in APPIUM for mobile testing</li>
+          <li>Insurance domain experience (preferred)</li>
+          <li>Strong understanding of QA methodologies</li>
+        </ul>
+
+        <div class="section-title">Requirements</div>
+        <ul class="bullet-list" contenteditable="true">
+          <li>Bachelor's degree in Computer Science</li>
+          <li>Experience with CI/CD pipelines</li>
+          <li>Strong problem-solving skills</li>
+          <li>Excellent communication abilities</li>
+        </ul>
+      </div>
+
+      <div class="contact-sidebar">
+        <div class="contact-item">
+          <div class="contact-label">📧 Send CV to:</div>
+          <div class="contact-value" contenteditable="true">anila.talurpudikinad@manomay.biz</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">📧 Alternative Email:</div>
+          <div class="contact-value" contenteditable="true">inquisite@manomay.biz</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">📱 Contact Number:</div>
+          <div class="contact-value" contenteditable="true">9949109362</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">📅 Application Deadline:</div>
+          <div class="contact-value" contenteditable="true">31 August 2024</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="company-info" contenteditable="true">
+      Manomay Innsurtech Pvt. Ltd. • 8-2-269/w/6, Gurukrupa Vilasam Sagar Society<br>
+      Sri Nagar Colony, Banjara Hills, Hyderabad, Telangana, INDIA - 500 034
+    </div>
+  </div>
+
+  <button class="download-btn" onclick="exportAsPNG()">Download as PNG</button>
+
+  <script>
+    function exportAsPNG() {
+      const target = document.getElementById('export-container');
+      html2canvas(target, {
+        backgroundColor: null,
+        scrollY: -window.scrollY,
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'job-posting.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>
